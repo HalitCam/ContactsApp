@@ -1,28 +1,38 @@
-import React, { useState } from 'react';
-
-const Form = () => {
-    const [form, setForm] = useState({ fullName: '', phoneNumber: '' })
+import React, { useEffect, useState } from 'react';
+const initialFormValues ={fullName:'', phoneNumber:''}
+const Form = ({ addContact, contacts }) => {
+    const [form, setForm] = useState(initialFormValues)
     const onChangeInput = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value })
     }
-function onSubmit(){
-    console.log("Onclick edildi")
-}
+    useEffect(()=>{setForm(initialFormValues)}, [contacts])
+    function onSubmit(e) {
+        e.preventDefault(); // prevents the refreshing of the Page
+
+        if (form.fullName === '' || form.phoneNumber === '') {
+            return false; //bu olay asagidaki console.log bölümüne gecisi engeller
+        }
+
+        addContact([...contacts, form])
+
+
+
+    }
     return (
-        <div>
+        <form onSubmit={onSubmit}>
             <div>
-                <input name='fullName' placeholder='Full Name' onChange={onChangeInput} />
+                <input value={form.fullName} name='fullName' placeholder='Full Name' onChange={onChangeInput} />
             </div>
             <div>
-                <input name='phoneNumber' placeholder='Phone Number' onChange={onChangeInput} />
+                <input value={form.phoneNumber} name='phoneNumber' placeholder='Phone Number' onChange={onChangeInput} />
 
             </div>
             <div>
-                <button onClick={onSubmit} >Add</button>
+                <button >Add</button>
             </div>
 
             <h1>Isim : {form.fullName} <br /> soyisim: {form.phoneNumber}</h1>
-        </div>
+        </form>
     );
 }
 
