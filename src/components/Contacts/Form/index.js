@@ -31,7 +31,6 @@ const Form = ({ addContact, contacts }) => {
                 <button >Add</button>
             </div>
 
-            <h1>Isim : {form.fullName} <br /> soyisim: {form.phoneNumber}</h1>
         </form>
     );
 }

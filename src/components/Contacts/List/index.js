@@ -4,7 +4,7 @@ const List = ({contacts}) => {
     return (
         <div>
           <ul>
-            {contacts.map((contact)=><li>{contact.fullName} {contact.phoneNumber}</li>)}
+            {contacts.map((contact, i)=><li key={i}>{contact.fullName} {contact.phoneNumber}</li>)}
           </ul>
         </div>
     );
