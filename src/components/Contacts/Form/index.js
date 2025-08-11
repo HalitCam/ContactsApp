@@ -29,7 +29,7 @@ const Form = ({ addContact, contacts }) => {
                 <input value={form.phoneNumber} name='phoneNumber' placeholder='Phone Number' onChange={onChangeInput} />
 
             </div>
-            <div>
+            <div className='btn'>
                 <button >Add</button>
             </div>
 

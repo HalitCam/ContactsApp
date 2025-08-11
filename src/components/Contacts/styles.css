@@ -1,26 +1,47 @@
-#container{
+#container {
     width: 400px;
     background-color: aliceblue;
     padding: 20px;
 
 }
-input{
+
+input {
     padding: 5px;
     width: 100%;
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 }
-ul,li{
+
+ul,
+li {
     margin: 0;
     padding: 0;
-    list-style-type:none ;
+    list-style-type: none;
 }
-.list{
-    margin: 15px 0;;
+
+.list {
+    margin: 15px 0;
+    ;
 }
-.list>li{
+
+.list>li {
     background-color: hwb(133 51% 7%);
     padding: 5px;
     margin-bottom: 2px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn>button {
+    border-radius: 5px;
+    padding: 5px 9px;
+    color: brown;
+    background: cornflowerblue;
 }

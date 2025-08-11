@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const List = ({ contacts }) => {
   const [filterText, setFilterText] = useState('');
-  const filtered = contacts.filter((item) => 
+  const filtered = contacts.filter((item) =>
     Object.keys(item).some((key) =>
       item[key].toString().toLowerCase().includes(filterText.toLowerCase())
     )
@@ -11,6 +11,7 @@ const List = ({ contacts }) => {
 
   return (
     <div>
+      <h1>Contacts</h1>
       <input
         placeholder='Filter Contact'
         value={filterText}
@@ -18,7 +19,10 @@ const List = ({ contacts }) => {
       />
       <ul className='list'>
         {filtered.map((contact, i) => (
-          <li key={i}>{contact.fullname} {contact.phone_number}</li>
+          <li key={i}>
+            <span>{contact.fullname} </span>
+            <span>{contact.phone_number}</span>
+          </li>
         ))}
       </ul>
     </div>
